@@ -3,7 +3,6 @@ import fake_data
 import diversio_stats
 import datetime
 import locale
-import pytz
 from utils import _dict, median
 from unittest import TestCase, main
 from unittest.mock import Mock, patch
