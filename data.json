@@ -16,7 +16,7 @@
                 "date": "September 28, 2022, 05:13",
                 "dateGMT": "September 27, 2022, 23:43",
                 "time": 1664322202,
-                "duration": "241 h, 58 min",
+                "duration": "248 h, 12 min",
                 "reason": {
                     "code": "200",
                     "detail": {
@@ -297,8 +297,32 @@
                 "datetime": "October 8, 2022, 06:30"
             },
             {
-                "value": 231,
+                "value": 214,
                 "datetime": "October 8, 2022, 07:30"
+            },
+            {
+                "value": 211,
+                "datetime": "October 8, 2022, 08:30"
+            },
+            {
+                "value": 211,
+                "datetime": "October 8, 2022, 09:30"
+            },
+            {
+                "value": 223,
+                "datetime": "October 8, 2022, 10:30"
+            },
+            {
+                "value": 219,
+                "datetime": "October 8, 2022, 11:30"
+            },
+            {
+                "value": 213,
+                "datetime": "October 8, 2022, 12:30"
+            },
+            {
+                "value": 211,
+                "datetime": "October 8, 2022, 13:30"
             }
         ],
         "7dRatio": {
