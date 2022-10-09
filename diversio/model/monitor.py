@@ -1,6 +1,5 @@
-from functools import reduce
 from typing import Tuple
-from diversio.utils import _dict, median
+from diversio.utils import median
 from diversio.model.base import Base
 from diversio.model.log import Log
 from diversio.model.response_times import ResponseTime
