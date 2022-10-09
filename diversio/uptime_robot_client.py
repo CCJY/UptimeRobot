@@ -23,6 +23,6 @@ class UptimeRobotClient:
     def run(self, url):
         api_url = self._get_api_from_html(url)
         response = self.get(api_url)
-        monitor_stats = MonitorStats(response)
+        monitor_stats = MonitorStats.from_dict(response)
 
         monitor_stats.summary()
