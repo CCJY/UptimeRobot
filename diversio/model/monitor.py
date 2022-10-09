@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import Tuple
 from diversio.utils import _dict, median
 from diversio.model.base import Base
@@ -25,10 +26,14 @@ class Monitor(Base):
     def get_name(self):
         return self.name
 
+    def get_response_times_summary(self) -> Tuple[ResponseTime, ResponseTime, ResponseTime, int]:
         sorted_response_times = sorted(
             self.response_times, key=lambda x: x.value, reverse=True)
         highest = sorted_response_times[0]
         lowest = sorted_response_times[-1]
         median_time = median(sorted_response_times)
 
-        return highest, lowest, median_time
+        average_time = round(sum(
+            [x.value for x in sorted_response_times]) / len(sorted_response_times), 2)
+
+        return highest, lowest, median_time, average_time
