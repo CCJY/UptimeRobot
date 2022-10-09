@@ -27,3 +27,11 @@ class ResponseTime(Base):
 
         return datetime.datetime.strftime(dt, self.strftime_format)
 
+    def get_last_days(self, timezone: str = None) -> int:
+        if timezone:
+            current_time = datetime.datetime.now().astimezone()
+        else:
+            current_time = datetime.datetime.now()
+
+        dt = self.get_local_datetime(timezone=timezone)
+        return (current_time - dt).days
