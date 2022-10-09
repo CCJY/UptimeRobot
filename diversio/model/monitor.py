@@ -22,7 +22,9 @@ class Monitor(Base):
     def validate(self):
         pass
 
-    def get_response_times_summary(self) -> Tuple[ResponseTime, ResponseTime, ResponseTime]:
+    def get_name(self):
+        return self.name
+
         sorted_response_times = sorted(
             self.response_times, key=lambda x: x.value, reverse=True)
         highest = sorted_response_times[0]
