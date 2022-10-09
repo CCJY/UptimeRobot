@@ -14,6 +14,10 @@ class MonitorStats:
     monitor: Monitor
     timezone: str = "+00:00"
 
+    @classmethod
+    def from_dict(cls, data) -> 'MonitorStats':
+        return cls(data)
+
     def summary(self):
         highest, lowest, median_time, average_time = self.monitor.get_response_times_summary()
         message = "{0} received highest ping on {1} with value {2}ms in last {3} days" \
