@@ -1,12 +1,8 @@
+import sys
 import argparse
-from diversio_stats import get, output
+from diversio.uptime_robot_client import UptimeRobotClient
 
 # dashboard_api_path="https://stats.uptimerobot.com/api/getMonitor/Q5ogPt6JAQ?m=785837216"
-
-
-def uptime_robot(url):
-    response = get(url)
-    output(response)
 
 
 def get_parser():
@@ -23,4 +19,6 @@ if not args.url:
     print(parser.print_help())
     sys.exit(2)
 
-uptime_robot(args.url)
+robot = UptimeRobotClient()
+
+robot.run(args.url)
