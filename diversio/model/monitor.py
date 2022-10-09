@@ -18,6 +18,11 @@ class Monitor:
     response_times: List[ResponseTime] = field(default_factory=list)
 
     def get_response_times_summary(self) -> Tuple[ResponseTime, ResponseTime, ResponseTime, int]:
+        """Get highest, lowest, and median of objects and average time
+
+        Returns:
+            Tuple[ResponseTime, ResponseTime, ResponseTime, int]: highest, lowest, median, average
+        """
         sorted_response_times = sorted(
             self.response_times, key=lambda x: x.value, reverse=True)
         highest = sorted_response_times[0]
