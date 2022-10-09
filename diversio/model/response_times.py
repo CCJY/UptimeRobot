@@ -7,6 +7,15 @@ from dataclasses_json import dataclass_json, config, LetterCase
 @dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class ResponseTime:
+    """
+    ResponseTime class is the data model
+
+    Attributes:
+        datetime: str
+            The datetime's format is "%B %d, %Y, %H:%M%z" (like October 08, 2022, 04:00)
+        value: int
+            The value is about latency
+    """
     datetime: str
     value: int
 
@@ -36,6 +45,16 @@ class ResponseTime:
         return datetime.datetime.strftime(dt, self.strftime_format)
 
     def get_last_days(self, timezone: str = None) -> int:
+        """Get last days.
+
+        The function calculates between current datetime and class member's datetime
+
+        Args:
+            timezone (str, optional): timezone like "+05:00". Defaults to None.
+
+        Returns:
+            int: days
+        """
         if timezone:
             current_time = datetime.datetime.now().astimezone()
         else:
