@@ -1,8 +1,15 @@
+from dataclasses import dataclass
 import datetime
-from diversio.model.base import Base
+from dataclasses import dataclass, field
+from dataclasses_json import dataclass_json, config, LetterCase
 
 
-class ResponseTime(Base):
+@dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
+class ResponseTime:
+    datetime: str
+    value: int
+
     strptime_with_tz_format = "%B %d, %Y, %H:%M%z"
     strptime_format = "%B %d, %Y, %H:%M"
     strftime_format = "%B %d, %Y, %H:%M"
