@@ -16,3 +16,14 @@ class ResponseTime(Base):
         return datetime.datetime.strptime(
             self.datetime, self.strptime_format
         )
+
+    def get_local_datetime(self, timezone: str = None) -> datetime.datetime:
+        dt = self._get_datetime(timezone=timezone)
+
+        return dt.astimezone()
+
+    def get_str_local_datetime(self, timezone: str = None) -> datetime.datetime:
+        dt = self.get_local_datetime(timezone=timezone)
+
+        return datetime.datetime.strftime(dt, self.strftime_format)
+
