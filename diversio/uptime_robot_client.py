@@ -3,7 +3,7 @@ from diversio.utils.extracts_from_html import get_extract_from_html
 from diversio.model.monitor_stats import MonitorStats
 
 
-class UptimeRobotClient():
+class UptimeRobotClient:
     extract_var = "pspApiPath"
 
     def _get_api_from_html(self, url):
