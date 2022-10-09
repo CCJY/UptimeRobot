@@ -1,4 +1,3 @@
-import datetime
 from diversio.model.base import Base
 from diversio.model.monitor import Monitor
 from diversio.model.response_times import ResponseTime
