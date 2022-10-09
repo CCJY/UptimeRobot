@@ -19,6 +19,15 @@ class MonitorStats:
         return cls(data)
 
     def summary(self):
+        """Display monitor status summary.
+
+        Examples
+        ----------
+        Dashboard received highest ping on October 07, 2022, 04:00 with value 296ms in last 2 days
+        Dashboard received lowest ping on October 08, 2022, 04:00 with value 211ms in last 1 days
+        Dashboard received median ping on October 08, 2022, 01:00 with value 223ms in last 1 days
+        Dashboard average ping is 229.18ms
+        """
         highest, lowest, median_time, average_time = self.monitor.get_response_times_summary()
         message = "{0} received highest ping on {1} with value {2}ms in last {3} days" \
             .format(self.monitor.name,
