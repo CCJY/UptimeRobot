@@ -1,5 +1,8 @@
-from diversio.model.base import Base
+from dataclasses import dataclass, field
+from dataclasses_json import dataclass_json, config, LetterCase
 
 
-class Statistics(Base):
+@dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
+class Statistics:
     pass

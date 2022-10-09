@@ -1,29 +1,21 @@
-from typing import Tuple
+from dataclasses import dataclass, field
+from dataclasses_json import dataclass_json, config, LetterCase
+from typing import List, Tuple
 from diversio.utils import median
-from diversio.model.base import Base
 from diversio.model.log import Log
 from diversio.model.response_times import ResponseTime
 
 
-class Monitor(Base):
-    def __init__(self, d):
-        if d:
-            if d.get("logs"):
-                self.logs = []
-                for log in d.get("logs"):
-                    self.logs.append(Log(log))
-            if d.get("responseTimes"):
-                self.response_times = []
-                for response_time in d.get("responseTimes"):
-                    self.response_times.append(ResponseTime(response_time))
-            if d.get("name"):
-                self.name = d.get("name")
+@dataclass_json(letter_case=LetterCase.CAMEL)
+@dataclass
+class Monitor:
+    """
+    Monitor class is the model that is from api getMonitor of diversio.
+    """
 
-    def validate(self):
-        pass
-
-    def get_name(self):
-        return self.name
+    name: str
+    logs: List[Log] = field(default_factory=list)
+    response_times: List[ResponseTime] = field(default_factory=list)
 
     def get_response_times_summary(self) -> Tuple[ResponseTime, ResponseTime, ResponseTime, int]:
         sorted_response_times = sorted(
