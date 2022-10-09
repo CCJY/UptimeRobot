@@ -1,3 +1,4 @@
+from typing import Tuple
 from diversio.utils import _dict, median
 from diversio.model.base import Base
 from diversio.model.log import Log
@@ -21,7 +22,7 @@ class Monitor(Base):
     def validate(self):
         pass
 
-    def get_response_times_summary(self):
+    def get_response_times_summary(self) -> Tuple[ResponseTime, ResponseTime, ResponseTime]:
         sorted_response_times = sorted(
             self.response_times, key=lambda x: x.value, reverse=True)
         highest = sorted_response_times[0]
